@@ -86,4 +86,17 @@ router.get('/categories', async (req, res) => {
   }
 });
 
+// GET /api/products/:id — detail produk untuk halaman konsumen.
+router.get('/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  if (!Number.isInteger(id) || id < 1) return res.status(400).json({ message: 'ID produk tidak valid' });
+  try {
+    const [rows] = await db.query(`${SELECT_PRODUCT} WHERE p.id = ?`, [id]);
+    if (!rows.length) return res.status(404).json({ message: 'Produk tidak ditemukan' });
+    res.json(rows[0]);
+  } catch (err) {
+    res.status(500).json({ message: 'Gagal mengambil detail produk', error: err.message });
+  }
+});
+
 module.exports = router;

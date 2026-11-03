@@ -22,6 +22,7 @@ app.get('/api', async (req, res) => {
 
 // Route tiap anggota didaftarin di sini
 app.use('/api/products', require('./routes/products')); // Fortuna: katalog
+app.use('/api/orders', require('./routes/orders')); // Syr: checkout konsumen
 app.use('/api/merchant', require('./routes/merchant')); // Dina: dashboard & produk merchant
 
 const PORT = process.env.PORT || 5000;
