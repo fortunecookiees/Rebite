@@ -11,6 +11,12 @@ const ICONS = {
       <path d="M15.5 8.5l-2 5-5 2 2-5z" />
     </>
   ),
+  store: (
+    <>
+      <path d="M3 10h18l-1.5-6h-15z" />
+      <path d="M5 10v10h14V10M9 20v-6h6v6" />
+    </>
+  ),
   user: (
     <>
       <circle cx="12" cy="8.5" r="3.5" />
@@ -30,6 +36,7 @@ function NavIcon({ name }) {
 const NAV_LINKS = [
   { to: '/', label: 'Home', icon: 'home', end: true },
   { to: '/explore', label: 'Explore', icon: 'explore' },
+  { to: '/merchant/dashboard', label: 'Merchant', icon: 'store' },
 ]
 
 const linkClass = ({ isActive }) =>
