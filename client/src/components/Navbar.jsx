@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { AnimatePresence, motion } from 'motion/react'
+import { useCartCount } from '../hooks/useCartCount.js'
 
 // Icon garis sederhana untuk menu
 const ICONS = {
@@ -51,6 +52,7 @@ const mobileLinkClass = ({ isActive }) =>
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const cartCount = useCartCount()
   const close = () => setOpen(false)
 
   // Tutup menu HP dengan tombol Escape
@@ -81,6 +83,9 @@ export default function Navbar() {
               {l.label}
             </NavLink>
           ))}
+          <NavLink to="/cart" className={linkClass}>
+            <span aria-hidden="true">🛒</span> Keranjang{cartCount > 0 && <span className="grid h-5 min-w-5 place-items-center rounded-full bg-caramel px-1 text-[11px] text-mocha-dark">{cartCount}</span>}
+          </NavLink>
           {/* Halaman login dibuat Della */}
           <Link
             to="/login"
@@ -128,6 +133,7 @@ export default function Navbar() {
                   {l.label}
                 </NavLink>
               ))}
+              <NavLink to="/cart" onClick={close} className={mobileLinkClass}>🛒 Keranjang {cartCount > 0 && `(${cartCount})`}</NavLink>
               <Link
                 to="/login"
                 onClick={close}
