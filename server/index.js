@@ -17,8 +17,8 @@ app.get('/api', async (req, res) => {
   }
 });
 
-// Route tiap anggota nanti didaftarin di sini, contoh:
-// app.use('/api/products', require('./routes/products'));
+// Route tiap anggota didaftarin di sini
+app.use('/api/products', require('./routes/products')); // Fortuna: katalog
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server jalan di http://localhost:${PORT}`));
