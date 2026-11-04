@@ -95,3 +95,21 @@ INSERT INTO products (merchant_id, name, category, description, photo_url, norma
 -- dua produk ini sengaja TIDAK boleh tampil di katalog (buat ngetes filter)
 (4, 'Tahu Isi (habis)', 'Snack', 'Stok sudah habis.', NULL, 15000, 8000, 0, DATE_ADD(NOW(), INTERVAL 5 HOUR)),
 (2, 'Roti Tawar (lewat waktu)', 'Roti & Pastry', 'Batas pickup sudah lewat.', NULL, 20000, 10000, 5, DATE_SUB(NOW(), INTERVAL 1 HOUR));
+
+
+-- Masukkan data pesanan contoh untuk merchant ID 2 (Roti Pagi Bakery)
+INSERT INTO orders (id, order_code, consumer_id, merchant_id, subtotal, service_fee, total, status, pickup_deadline, created_at) VALUES
+(1, 'RB-82910', 1, 2, 27000, 1000, 28000, 'Pesanan Baru', DATE_ADD(NOW(), INTERVAL 3 HOUR), NOW()),
+(2, 'RB-82911', 1, 2, 12000, 1000, 13000, 'Siap Diambil', DATE_ADD(NOW(), INTERVAL 2 HOUR), NOW()),
+(3, 'RB-82912', 1, 2, 39000, 1000, 40000, 'Pesanan Baru', DATE_ADD(NOW(), INTERVAL 4 HOUR), NOW()),
+(4, 'RB-82913', 1, 2, 18000, 1000, 19000, 'Selesai', DATE_SUB(NOW(), INTERVAL 2 HOUR), DATE_SUB(NOW(), INTERVAL 1 HOUR)),
+(5, 'RB-82914', 1, 2, 15000, 1000, 16000, 'Dibatalkan', DATE_SUB(NOW(), INTERVAL 3 HOUR), DATE_SUB(NOW(), INTERVAL 2 HOUR));
+
+-- Memasukkan rincian item produk untuk masing-masing pesanan di atas
+INSERT INTO order_items (order_id, product_id, product_name, price, quantity) VALUES
+(1, 1, 'Roti Sobek Cokelat', 15000, 1),
+(1, 2, 'Croissant Butter', 12000, 1),
+(2, 2, 'Croissant Butter', 12000, 1),
+(3, 5, 'Es Kopi Susu Literan', 39000, 1),
+(4, 6, 'Sandwich Tuna', 18000, 1),
+(5, 3, 'Donat Gula Isi 3', 15000, 1);

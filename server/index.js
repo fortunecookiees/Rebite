@@ -23,6 +23,7 @@ app.get('/api', async (req, res) => {
 // Route tiap anggota didaftarin di sini
 app.use('/api/products', require('./routes/products')); // Fortuna: katalog
 app.use('/api/merchant', require('./routes/merchant')); // Dina: dashboard & produk merchant
+app.use('/api/orders', require('./routes/orders')); // Vanesa: pesanan konsumen & merchant
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server jalan di http://localhost:${PORT}`));

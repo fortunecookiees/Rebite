@@ -5,6 +5,8 @@ import Home from './pages/Home.jsx'
 import Explore from './pages/Explore.jsx'
 import MerchantDashboard from './pages/MerchantDashboard.jsx'
 import ManageProducts from './pages/ManageProducts.jsx'
+import ManageOrders from './pages/ManageOrders.jsx'
+import MyOrders from './pages/MyOrders.jsx'
 
 export default function App() {
   return (
@@ -17,6 +19,8 @@ export default function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/merchant/dashboard" element={<MerchantDashboard />} />
           <Route path="/merchant/products" element={<ManageProducts />} />
+          <Route path="/merchant/orders" element={<ManageOrders />} />
+          <Route path="/my-orders" element={<MyOrders />} /> {/* riwayat pesanan customer */}
 
           {/* Anggota lain tambahin route-nya di sini, contoh:
           <Route path="/login" element={<Login />} />            Della
