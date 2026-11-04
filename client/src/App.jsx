@@ -9,6 +9,8 @@ import ProductDetail from './pages/ProductDetail.jsx'
 import Cart from './pages/Cart.jsx'
 import Checkout from './pages/Checkout.jsx'
 import OrderConfirmation from './pages/OrderConfirmation.jsx'
+import ManageOrders from './pages/ManageOrders.jsx'
+import MyOrders from './pages/MyOrders.jsx'
 
 export default function App() {
   return (
@@ -26,6 +28,8 @@ export default function App() {
           <Route path="/pesanan/:id" element={<OrderConfirmation />} />
           <Route path="/merchant/dashboard" element={<MerchantDashboard />} />
           <Route path="/merchant/products" element={<ManageProducts />} />
+          <Route path="/merchant/orders" element={<ManageOrders />} />
+          <Route path="/my-orders" element={<MyOrders />} /> {/* riwayat pesanan customer */}
 
           {/* Anggota lain tambahin route-nya di sini, contoh:
           <Route path="/login" element={<Login />} />            Della

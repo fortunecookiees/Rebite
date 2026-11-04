@@ -34,7 +34,10 @@ export default function MerchantDashboard() {
           <h1 className="mt-2 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">Dashboard</h1>
           <p className="mt-2 text-coffee">{data?.merchant_name ? `Halo, ${data.merchant_name}!` : 'Pantau produk dan pesanan tokomu di sini.'}</p>
         </div>
-        <Link to="/merchant/products" className="inline-flex min-h-12 items-center justify-center rounded-full bg-mocha px-6 font-bold text-cream transition hover:bg-mocha-dark">+ Kelola produk</Link>
+        <div className="flex flex-wrap gap-3">
+          <Link to="/merchant/products" className="inline-flex min-h-12 items-center justify-center rounded-full bg-latte px-6 font-bold text-mocha transition hover:brightness-95">+ Kelola produk</Link>
+          <Link to="/merchant/orders" className="inline-flex min-h-12 items-center justify-center rounded-full bg-mocha px-6 font-bold text-cream transition hover:bg-mocha-dark"> Kelola Pesanan</Link>
+        </div>
       </div>
 
       {error && <div role="alert" className="mt-7 rounded-2xl border border-urgent/40 bg-white p-5 text-urgent">{error}. Pastikan MySQL dan backend aktif, lalu cek akun merchant yang digunakan.</div>}
